@@ -27,6 +27,9 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation("org.koin:koin-core:3.0.0-alpha-4")
+                implementation("io.ktor:ktor-client-core:1.4.1")
+                implementation("io.ktor:ktor-client-cio:1.4.1")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.0")
             }
         }
         val commonTest by getting {

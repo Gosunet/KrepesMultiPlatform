@@ -1,3 +1,8 @@
 package com.gosunet.krepesmultiplatform.shared.data
 
-class CrepesRepository
+import org.koin.core.KoinComponent
+
+class CrepesRepository(private val crepesApi: CrepesApi): KoinComponent {
+    suspend fun getCrepes() = crepesApi.getCrepes()
+    suspend fun getGalettes() = crepesApi.getGalettes()
+}
