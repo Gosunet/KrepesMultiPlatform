@@ -20,6 +20,7 @@ Purpose is to shared a "business" module to get and transform the crepes recipes
 - [Koin for multiplatform](https://doc.insert-koin.io/#/setup/koin_mp) for dependency injection 🆕
 - [Jetpack Compose](https://developer.android.com/jetpack/compose) in the sample android app for creating the ui.
 - [SwitfUi](https://developer.apple.com/xcode/swiftui/) in the iOS sample App.
+- [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html).
 
 ## Author
 
