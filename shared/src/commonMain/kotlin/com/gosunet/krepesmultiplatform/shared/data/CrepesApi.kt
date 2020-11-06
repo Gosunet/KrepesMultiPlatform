@@ -7,13 +7,13 @@ import io.ktor.client.request.url
 import io.ktor.http.HttpMethod
 import org.koin.core.KoinComponent
 
-class CrepesApi(private val httpClient: HttpClient): KoinComponent {
+class CrepesApi(private val httpClient: HttpClient) : KoinComponent {
 
     private val baseApi = "https://u5iywk3bs4.execute-api.eu-west-3.amazonaws.com/Prod/"
     private val apikey = "Ezc7yLacAz1V4OgIo9p191q76sS8fUqf0aVRQSl6"
 
     suspend fun getCrepes() = httpClient.request<String> {
-        url("${baseApi}/crepes")
+        url("$baseApi/crepes")
         method = HttpMethod.Get
         headers {
             append("x-api-key", "apikey")
@@ -21,7 +21,7 @@ class CrepesApi(private val httpClient: HttpClient): KoinComponent {
     }
 
     suspend fun getGalettes() = httpClient.request<String> {
-        url("${baseApi}/galettes")
+        url("$baseApi/galettes")
         method = HttpMethod.Get
         headers {
             append("x-api-key", apikey)

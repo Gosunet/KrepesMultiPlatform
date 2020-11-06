@@ -5,6 +5,8 @@ plugins {
     id("com.android.library")
     id("kotlin-android-extensions")
 }
+apply(from="../gradle/ktlint.gradle.kts")
+
 group = "com.gosunet.krepesmultiplatform"
 version = "1.0-SNAPSHOT"
 

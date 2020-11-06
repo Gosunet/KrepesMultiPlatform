@@ -21,6 +21,7 @@ Purpose is to shared a "business" module to get and transform the crepes recipes
 - [Jetpack Compose](https://developer.android.com/jetpack/compose) in the sample android app for creating the ui.
 - [SwitfUi](https://developer.apple.com/xcode/swiftui/) in the iOS sample App.
 - [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html).
+- [Ktlint](https://github.com/pinterest/ktlint) as Kotlin linter.
 
 ## Author
 
