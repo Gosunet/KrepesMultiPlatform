@@ -5,7 +5,7 @@ plugins {
     id("com.android.library")
     id("kotlin-android-extensions")
 }
-apply(from="../gradle/ktlint.gradle.kts")
+apply(from="../buildSrc/ktlint.gradle.kts")
 
 group = "com.gosunet.krepesmultiplatform"
 version = "1.0-SNAPSHOT"
@@ -28,10 +28,10 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("org.koin:koin-core:3.0.0-alpha-4")
-                implementation("io.ktor:ktor-client-core:1.4.1")
-                implementation("io.ktor:ktor-client-cio:1.4.1")
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.0")
+                implementation("org.koin:koin-core:$koin")
+                implementation("io.ktor:ktor-client-core:$ktor")
+                implementation("io.ktor:ktor-client-cio:$ktor")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine")
             }
         }
         val commonTest by getting {
@@ -42,13 +42,13 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation("com.google.android.material:material:1.2.0")
+                implementation("com.google.android.material:material:$material")
             }
         }
         val androidTest by getting {
             dependencies {
                 implementation(kotlin("test-junit"))
-                implementation("junit:junit:4.12")
+                implementation("junit:junit:4.13.1")
             }
         }
         val iosMain by getting
@@ -56,11 +56,11 @@ kotlin {
     }
 }
 android {
-    compileSdkVersion(29)
+    compileSdkVersion(30)
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
         minSdkVersion(24)
-        targetSdkVersion(29)
+        targetSdkVersion(30)
         versionCode = 1
         versionName = "1.0"
     }

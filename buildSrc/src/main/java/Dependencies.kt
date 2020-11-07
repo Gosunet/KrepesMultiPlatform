@@ -1,0 +1,5 @@
+const val compose = "1.0.0-alpha05"
+const val koin = "3.0.0-alpha-4"
+const val coroutine = "1.4.0"
+const val ktor = "1.4.1"
+const val material = "1.2.1"
