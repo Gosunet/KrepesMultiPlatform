@@ -4,6 +4,7 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     id("kotlin-android-extensions")
+    kotlin("plugin.serialization") version "1.4.10"
 }
 apply(from="../buildSrc/ktlint.gradle.kts")
 
@@ -28,10 +29,17 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("org.koin:koin-core:$koin")
-                implementation("io.ktor:ktor-client-core:$ktor")
-                implementation("io.ktor:ktor-client-cio:$ktor")
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine")
+                // koin
+                implementation("org.koin:koin-core:${Versions.koin}")
+                // ktor
+                implementation("io.ktor:ktor-client-core:${Versions.ktor}")
+                implementation("io.ktor:ktor-client-cio:${Versions.ktor}")
+                implementation("io.ktor:ktor-client-json:${Versions.ktor}")
+                implementation("io.ktor:ktor-client-logging:${Versions.ktor}")
+                implementation("io.ktor:ktor-client-serialization:${Versions.ktor}")
+                // coroutine
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutine}")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinxSerialization}")
             }
         }
         val commonTest by getting {
@@ -42,7 +50,7 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation("com.google.android.material:material:$material")
+                implementation("com.google.android.material:material:${Versions.material}")
             }
         }
         val androidTest by getting {

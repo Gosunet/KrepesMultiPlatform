@@ -17,11 +17,13 @@ Purpose is to shared a "business" module to get and transform the crepes recipes
 ## Library Used 
 
 - [Ktor](https://ktor.io/learn/) for the asynchronous http client.
+- [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization).
 - [Koin for multiplatform](https://doc.insert-koin.io/#/setup/koin_mp) for dependency injection 🆕
 - [Jetpack Compose](https://developer.android.com/jetpack/compose) in the sample android app for creating the ui.
 - [SwitfUi](https://developer.apple.com/xcode/swiftui/) in the iOS sample App.
 - [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html).
 - [Ktlint](https://github.com/pinterest/ktlint) as Kotlin linter.
+- [Navigation](https://developer.android.com/guide/navigation/) for the navigation in the android app.
 
 ## Author
 

@@ -12,7 +12,7 @@ class CrepesApi(private val httpClient: HttpClient) : KoinComponent {
     private val baseApi = "https://u5iywk3bs4.execute-api.eu-west-3.amazonaws.com/Prod/"
     private val apikey = "Ezc7yLacAz1V4OgIo9p191q76sS8fUqf0aVRQSl6"
 
-    suspend fun getCrepes() = httpClient.request<String> {
+    suspend fun getCrepes(): List<Crepe> = httpClient.request {
         url("$baseApi/crepes")
         method = HttpMethod.Get
         headers {
@@ -20,7 +20,7 @@ class CrepesApi(private val httpClient: HttpClient) : KoinComponent {
         }
     }
 
-    suspend fun getGalettes() = httpClient.request<String> {
+    suspend fun getGalettes(): List<Crepe> = httpClient.request {
         url("$baseApi/galettes")
         method = HttpMethod.Get
         headers {
