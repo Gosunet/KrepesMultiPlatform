@@ -10,9 +10,9 @@
 
 Because everyone needs a Kotlin Multiplatform library to share crepes recipes ! #bzh
 
-This is a sample project to show an implementation of a Kotlin Multiplatform library.
+This is a sample project to show an implementation of a Kotlin Multiplatform library with Compose.
 
-Purpose is to shared a "business" module to get and transform the crepes recipes. Then used the module in an Android and iOS native app.
+The purpose is to share a "business" module to get and transform crepe recipes. Then used the module in an Android and iOS native app (maybe desktop app too, and web app also ?).
 
 ## Library Used 
 
