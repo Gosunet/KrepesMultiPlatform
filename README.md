@@ -14,6 +14,8 @@ This is a sample project to show an implementation of a Kotlin Multiplatform lib
 
 The purpose is to share a "business" module to get and transform crepe recipes. Then used the module in an Android and iOS native app (maybe desktop app too, and web app also ?).
 
+🚧 Work in progress 🚧
+
 ## Library Used 
 
 - [Ktor](https://ktor.io/learn/) for the asynchronous http client.
