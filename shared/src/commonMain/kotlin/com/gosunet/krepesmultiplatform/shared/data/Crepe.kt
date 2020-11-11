@@ -4,8 +4,8 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Crepe(
-    val name: String,
-    val description: String,
+    var name: String,
+    var description: String,
     val url: String,
     val rate: String,
     val image: String
