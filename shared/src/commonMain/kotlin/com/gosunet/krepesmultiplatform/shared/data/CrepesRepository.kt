@@ -4,22 +4,26 @@ import org.koin.core.KoinComponent
 
 class CrepesRepository(private val crepesApi: CrepesApi) : KoinComponent {
     suspend fun getCrepes(city: City = City.Brest): List<Crepe> {
-        return crepesApi.getCrepes() + getGalettes(city)
-    }
-
-    private suspend fun getGalettes(city: City): List<Crepe> {
-        return if (City.Brest == city) {
-            crepesApi.getGalettes().map {
-                it.name = it.name.replaceGaletteToCrepes()
-                it.description = it.description.replaceGaletteToCrepes()
-                it
-            }
-        } else {
-            crepesApi.getGalettes()
+        val crepes = crepesApi.getCrepes() + getGalettes()
+        crepes.map {
+            it.name =
+                if (City.Brest == city) it.name.replaceGaletteToCrepes() else it.name.replaceCrepesToGalettes()
+            it.description =
+                if (City.Brest == city) it.description.replaceGaletteToCrepes() else it.description.replaceCrepesToGalettes()
+            it
         }
+        return crepes
     }
 
-    fun String.replaceGaletteToCrepes() =
+    private suspend fun getGalettes(): List<Crepe> {
+        return crepesApi.getGalettes()
+    }
+
+    private fun String.replaceCrepesToGalettes() =
+        this.replace("Crêpes de blé noir", "Galettes", true)
+            .replace("Crêpes au Sarrasin", "Galettes", true)
+
+    private fun String.replaceGaletteToCrepes() =
         this.replace("Galette", "Crêpe")
             .replace("Galettes", "Crêpes")
             .replace("galettes", "crêpes")

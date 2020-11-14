@@ -1,5 +1,6 @@
 package com.gosunet.krepesmultiplatform.androidApp.features.crepeslist
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.Text
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -8,18 +9,22 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.preferredSize
 import androidx.compose.foundation.lazy.LazyColumnFor
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.ui.tooling.preview.Preview
 import androidx.ui.tooling.preview.PreviewParameter
+import com.gosunet.krepesmultiplatform.androidApp.R
 import com.gosunet.krepesmultiplatform.shared.data.City
 import com.gosunet.krepesmultiplatform.shared.data.Crepe
 
@@ -44,7 +49,13 @@ fun CrepeView(name: String, description: String, url: String, rate: String, imag
         modifier = Modifier.fillMaxWidth() then Modifier.padding(16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Spacer(modifier = Modifier.preferredSize(60.dp))
+
+        Image(
+            asset = imageResource(id = R.drawable.pate_crepes),
+            modifier = Modifier.preferredSize(60.dp).clip(shape = RoundedCornerShape(4.dp))
+        )
+
+        Spacer(modifier = Modifier.preferredSize(20.dp))
 
         Column {
             Text(text = name, style = TextStyle(fontSize = 20.sp))
