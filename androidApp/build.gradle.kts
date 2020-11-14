@@ -7,7 +7,7 @@ plugins {
 apply(from="../buildSrc/ktlint.gradle.kts")
 
 group = "com.gosunet.krepesmultiplatform"
-version = "1.0-SNAPSHOT"
+version = "1.0"
 
 dependencies {
     implementation(project(":shared"))
