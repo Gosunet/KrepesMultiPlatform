@@ -45,13 +45,14 @@ fun CrepesList(crepesListViewModel: CrepesListViewModel, city: City = City.Brest
 
 @Composable
 fun CrepeView(name: String, description: String, url: String, rate: String, image: String) {
+    val asset = imageResource(id = R.drawable.pate_crepes)
     Row(
         modifier = Modifier.fillMaxWidth() then Modifier.padding(16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
 
         Image(
-            asset = imageResource(id = R.drawable.pate_crepes),
+            asset = asset,
             modifier = Modifier.preferredSize(60.dp).clip(shape = RoundedCornerShape(4.dp))
         )
 

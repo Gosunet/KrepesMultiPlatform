@@ -22,6 +22,7 @@ The purpose is to share a "business" module to get and transform crepe recipes. 
 - [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization).
 - [Koin for multiplatform](https://doc.insert-koin.io/#/setup/koin_mp) for dependency injection 🆕
 - [Jetpack Compose](https://developer.android.com/jetpack/compose) in the sample android app for creating the ui.
+- [Jetpack Compose for Desktop](https://www.jetbrains.com/lp/compose/) 🆕
 - [SwitfUi](https://developer.apple.com/xcode/swiftui/) in the iOS sample App.
 - [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html).
 - [Ktlint](https://github.com/pinterest/ktlint) as Kotlin linter.
