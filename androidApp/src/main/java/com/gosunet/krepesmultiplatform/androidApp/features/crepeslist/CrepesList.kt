@@ -36,9 +36,12 @@ fun CrepesList(crepesListViewModel: CrepesListViewModel, city: City = City.Brest
             TopAppBar(title = { Text("Crepes list") })
         },
         bodyContent = {
-            LazyColumnFor(items = crepesList, itemContent = { crepe ->
-                CrepeView(crepe.name, crepe.description, crepe.url, crepe.rate, crepe.image)
-            })
+            LazyColumnFor(
+                items = crepesList,
+                itemContent = { crepe ->
+                    CrepeView(crepe.name, crepe.description, crepe.url, crepe.rate, crepe.image)
+                }
+            )
         }
     )
 }

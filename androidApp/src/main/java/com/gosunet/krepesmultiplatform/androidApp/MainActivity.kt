@@ -42,9 +42,11 @@ fun MainLayout(crepesListViewModel: CrepesListViewModel) {
             startDestination = Screen.SelectCityScreen.title
         ) { // start at select city
             composable(Screen.SelectCityScreen.title) {
-                SelectCity(citySelected = {
-                    navController.navigate(Screen.CrepesListScreen.title + "/${it.name}")
-                })
+                SelectCity(
+                    citySelected = {
+                        navController.navigate(Screen.CrepesListScreen.title + "/${it.name}")
+                    }
+                )
             }
             composable(Screen.CrepesListScreen.title + "/{city}") { backStackEntry ->
                 CrepesList(crepesListViewModel, City.valueOf(backStackEntry.arguments!!.getString("city")!!))

@@ -23,7 +23,8 @@ fun SelectCity(citySelected: (city: City) -> Unit = {}) {
     Scaffold(
         topBar = {
             TopAppBar(title = { Text(stringResource(id = R.string.select_city)) })
-        }, bodyContent = {
+        },
+        bodyContent = {
             Column(
                 modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
@@ -36,5 +37,6 @@ fun SelectCity(citySelected: (city: City) -> Unit = {}) {
                     }
                 }
             }
-        })
+        }
+    )
 }

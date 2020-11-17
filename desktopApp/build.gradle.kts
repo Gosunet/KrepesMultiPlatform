@@ -6,6 +6,8 @@ plugins {
     id("org.jetbrains.compose")
 }
 
+apply(from="../buildSrc/ktlint.gradle.kts")
+
 kotlin {
     jvm {
         withJava()
@@ -15,6 +17,12 @@ kotlin {
             dependencies {
                 implementation(compose.desktop.currentOs)
                 implementation(project(":shared"))
+
+                // Koin for Kotlin
+                implementation("org.koin:koin-core:${Versions.koin}")
+
+                // coroutines
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutine}")
             }
         }
     }
