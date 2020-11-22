@@ -1,18 +1,33 @@
 import SwiftUI
 import shared
 
-func greet() -> String {
-    return Greeting().greeting()
-}
 
 struct ContentView: View {
+    @ObservedObject var krepesViewModel = KrepesViewModel(repository: CrepesRepository())
+
     var body: some View {
-        Text(greet())
+        NavigationView {
+            VStack {
+                List(krepesViewModel.crepes, id: \.name) { crepe in
+                    CrepeView(crepe: crepe)
+                }
+                .navigationBarTitle(Text("Crepes List"))
+                .onAppear {
+                    self.krepesViewModel.startObservingCrepesUpdates()
+                }
+            }
+        }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+struct CrepeView: View {
+    var crepe: Crepe
+
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                Text(crepe.name).font(.headline)
+            }
+        }
     }
 }

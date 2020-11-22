@@ -1,8 +1,21 @@
 package com.gosunet.krepesmultiplatform.shared.data
 
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
 import org.koin.core.KoinComponent
+import org.koin.core.inject
 
-class CrepesRepository(private val crepesApi: CrepesApi) : KoinComponent {
+class CrepesRepository() : KoinComponent {
+    private val coroutineScope: CoroutineScope = MainScope()
+    private val crepesApi: CrepesApi by inject()
+
+    var crepesJob: Job? = null
+
+    init {
+    }
+
     suspend fun getCrepes(city: City = City.Brest): List<Crepe> {
         val crepes = crepesApi.getCrepes() + getGalettes()
         crepes.map {
@@ -28,4 +41,11 @@ class CrepesRepository(private val crepesApi: CrepesApi) : KoinComponent {
             .replace("Galettes", "Crêpes")
             .replace("galettes", "crêpes")
             .replace("galette", "crêpe")
+
+    // called from Kotlin/Native clients
+    fun startObservingCrepesUpdates(success: (List<Crepe>) -> Unit) {
+        crepesJob = coroutineScope.launch {
+            success(getCrepes())
+        }
+    }
 }

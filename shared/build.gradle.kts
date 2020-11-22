@@ -43,7 +43,6 @@ kotlin {
                 implementation("org.koin:koin-core:${Versions.koin}")
                 // ktor
                 implementation("io.ktor:ktor-client-core:${Versions.ktor}")
-                implementation("io.ktor:ktor-client-cio:${Versions.ktor}")
                 implementation("io.ktor:ktor-client-json:${Versions.ktor}")
                 implementation("io.ktor:ktor-client-logging:${Versions.ktor}")
                 implementation("io.ktor:ktor-client-serialization:${Versions.ktor}")
@@ -62,6 +61,7 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
+                implementation("io.ktor:ktor-client-android:${Versions.ktor}")
                 implementation("com.google.android.material:material:${Versions.material}")
             }
         }
@@ -71,8 +71,21 @@ kotlin {
                 implementation("junit:junit:4.13.1")
             }
         }
-        val iosMain by getting
-        val iosTest by getting
+        val iosMain by getting {
+            dependencies {
+                implementation("io.ktor:ktor-client-ios:${Versions.ktor}")
+            }
+        }
+        val iosTest by getting{
+            dependencies {
+                implementation("io.ktor:ktor-client-ios:${Versions.ktor}")
+            }
+        }
+        val desktopMain by getting{
+            dependencies {
+                implementation("io.ktor:ktor-client-apache:${Versions.ktor}")
+            }
+        }
     }
 }
 val packForXcode by tasks.creating(Sync::class) {

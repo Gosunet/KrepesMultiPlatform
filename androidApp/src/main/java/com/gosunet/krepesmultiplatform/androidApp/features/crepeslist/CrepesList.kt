@@ -33,7 +33,7 @@ fun CrepesList(crepesListViewModel: CrepesListViewModel, city: City = City.Brest
     val crepesList = crepesListViewModel.getCrepes(city)
     Scaffold(
         topBar = {
-            TopAppBar(title = { Text("Crepes list") })
+            TopAppBar(title = { Text("Crepes liste") })
         },
         bodyContent = {
             LazyColumnFor(

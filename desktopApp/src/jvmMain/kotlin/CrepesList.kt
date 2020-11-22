@@ -4,7 +4,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumnFor
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -16,14 +18,21 @@ import com.gosunet.krepesmultiplatform.shared.data.Crepe
 
 @Composable
 fun CrepesList(crepesList: List<Crepe>) {
-    MaterialTheme {
-        LazyColumnFor(
-            items = crepesList,
-            itemContent = { crepe ->
-                CrepeView(crepe.name, crepe.description, crepe.url, crepe.rate, crepe.image)
+    Scaffold(
+        topBar = {
+            TopAppBar(title = { Text("Crepes liste") })
+        },
+        bodyContent = {
+            MaterialTheme {
+                LazyColumnFor(
+                    items = crepesList,
+                    itemContent = { crepe ->
+                        CrepeView(crepe.name, crepe.description, crepe.url, crepe.rate, crepe.image)
+                    }
+                )
             }
-        )
-    }
+        }
+    )
 }
 
 @Composable

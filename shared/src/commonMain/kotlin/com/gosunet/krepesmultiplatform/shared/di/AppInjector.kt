@@ -3,7 +3,6 @@ package com.gosunet.krepesmultiplatform.shared.di
 import com.gosunet.krepesmultiplatform.shared.data.CrepesApi
 import com.gosunet.krepesmultiplatform.shared.data.CrepesRepository
 import io.ktor.client.HttpClient
-import io.ktor.client.engine.cio.CIO
 import io.ktor.client.features.json.JsonFeature
 import io.ktor.client.features.json.serializer.KotlinxSerializer
 import io.ktor.client.features.logging.DEFAULT
@@ -28,7 +27,7 @@ fun initKoin() = initKoin {}
 @KtorExperimentalAPI
 val networkingModule = module {
     single {
-        HttpClient(CIO) {
+        HttpClient {
             install(JsonFeature) {
                 serializer = KotlinxSerializer()
             }
@@ -42,5 +41,5 @@ val networkingModule = module {
 
 val commonModule = module {
     single { CrepesApi(get()) }
-    single { CrepesRepository(get()) }
+    single { CrepesRepository() }
 }

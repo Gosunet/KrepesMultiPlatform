@@ -14,7 +14,7 @@ fun main() {
         crepesList.addAll(AppInjector.crepesRepository.getCrepes())
     }
 
-    Window(title = "Compose for Desktop", size = IntSize(300, 300)) {
+    Window(title = "Compose for Desktop", size = IntSize(1000, 1000)) {
         CrepesList(crepesList)
     }
 }
