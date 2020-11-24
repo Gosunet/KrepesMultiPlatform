@@ -12,7 +12,7 @@ Because everyone needs a Kotlin Multiplatform library to share crepes recipes ! 
 
 This is a sample project to show an implementation of a Kotlin Multiplatform library with Compose.
 
-The purpose is to share a "business" module to get and transform crepe recipes. Then used the module in an Android, iOS native app and Desktop app (web app soon).
+The purpose is to share a "business" module to get and transform crepe recipes. Then used the module in an Android, iOS, Desktop and web app.
 
 🚧 Work in progress 🚧
 
