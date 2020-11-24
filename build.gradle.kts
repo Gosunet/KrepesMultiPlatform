@@ -23,6 +23,7 @@ allprojects {
         jcenter()
         maven(url = "https://dl.bintray.com/ekito/koin")
         maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+        maven(url = "https://kotlin.bintray.com/kotlin-js-wrappers/")
     }
 }
 

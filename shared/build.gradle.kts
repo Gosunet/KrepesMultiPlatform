@@ -36,6 +36,12 @@ kotlin {
         }
     }
     jvm("desktop")
+
+    js {
+        browser {
+        }
+    }
+
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -84,6 +90,11 @@ kotlin {
         val desktopMain by getting{
             dependencies {
                 implementation("io.ktor:ktor-client-apache:${Versions.ktor}")
+            }
+        }
+        val jsMain by getting {
+            dependencies {
+                implementation( "io.ktor:ktor-client-js:${Versions.ktor}")
             }
         }
     }
