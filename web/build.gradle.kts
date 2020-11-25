@@ -16,6 +16,11 @@ dependencies {
     implementation(npm("react", "16.13.0"))
     implementation(npm("react-dom", "16.13.0"))
 
+    // Styled-Css
+    implementation("org.jetbrains:kotlin-styled:1.0.0-pre.110-kotlin-1.4.0")
+    implementation(npm("styled-components", "4.4.0"))
+    implementation(npm("inline-style-prefixer", "~6.0.0"))
+
     implementation(project(":shared"))
 }
 
