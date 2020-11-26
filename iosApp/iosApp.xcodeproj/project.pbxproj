@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7555FF7F242A565900829871 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF7E242A565900829871 /* AppDelegate.swift */; };
-		7555FF81242A565900829871 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF80242A565900829871 /* SceneDelegate.swift */; };
-		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		7555FF83242A565900829871 /* KrepesListContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* KrepesListContentView.swift */; };
 		7555FF85242A565B00829871 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7555FF84242A565B00829871 /* Assets.xcassets */; };
 		7555FF88242A565B00829871 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7555FF87242A565B00829871 /* Preview Assets.xcassets */; };
 		7555FF8B242A565B00829871 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7555FF89242A565B00829871 /* LaunchScreen.storyboard */; };
@@ -17,7 +16,18 @@
 		7555FFA1242A565B00829871 /* iosAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FFA0242A565B00829871 /* iosAppUITests.swift */; };
 		7555FFB2242A642300829871 /* shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7555FFB1242A642300829871 /* shared.framework */; };
 		7555FFB3242A642300829871 /* shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7555FFB1242A642300829871 /* shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		99532EB32569EF0B006E064D /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99532EB22569EF0B006E064D /* ViewModel.swift */; };
+		99532EB32569EF0B006E064D /* KrepesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99532EB22569EF0B006E064D /* KrepesViewModel.swift */; };
+		C20531FE256F0A460048BE7E /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20531FD256F0A460048BE7E /* ImageLoader.swift */; };
+		C2053205256F0DE00048BE7E /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2053204256F0DE00048BE7E /* ImageCache.swift */; };
+		C2053209256F0E410048BE7E /* EnvironmentValues+ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2053208256F0E410048BE7E /* EnvironmentValues+ImageCache.swift */; };
+		C205320F257026760048BE7E /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C205320E257026760048BE7E /* AsyncImageView.swift */; };
+		C205322E25702A800048BE7E /* KrepesBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C205322D25702A800048BE7E /* KrepesBaseViewController.swift */; };
+		C2053236257048660048BE7E /* KrepesCityListContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2053235257048660048BE7E /* KrepesCityListContentView.swift */; };
+		C25F28DA256EF3D80059C464 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25F28D9256EF3D80059C464 /* Coordinator.swift */; };
+		C25F28E2256EF4650059C464 /* KrepesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25F28E1256EF4650059C464 /* KrepesCoordinator.swift */; };
+		C25F28E6256EF5E70059C464 /* KrepesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25F28E5256EF5E70059C464 /* KrepesListViewController.swift */; };
+		C25F28ED256F03480059C464 /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25F28EC256F03480059C464 /* CityViewController.swift */; };
+		C25F28F6256F05690059C464 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25F28F5256F05690059C464 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,8 +64,7 @@
 /* Begin PBXFileReference section */
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF7E242A565900829871 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7555FF80242A565900829871 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7555FF82242A565900829871 /* KrepesListContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrepesListContentView.swift; sourceTree = "<group>"; };
 		7555FF84242A565B00829871 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7555FF87242A565B00829871 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7555FF8A242A565B00829871 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -67,7 +76,18 @@
 		7555FFA0242A565B00829871 /* iosAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iosAppUITests.swift; sourceTree = "<group>"; };
 		7555FFA2242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7555FFB1242A642300829871 /* shared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = shared.framework; path = "../shared/build/xcode-frameworks/shared.framework"; sourceTree = "<group>"; };
-		99532EB22569EF0B006E064D /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		99532EB22569EF0B006E064D /* KrepesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrepesViewModel.swift; sourceTree = "<group>"; };
+		C20531FD256F0A460048BE7E /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		C2053204256F0DE00048BE7E /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		C2053208256F0E410048BE7E /* EnvironmentValues+ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ImageCache.swift"; sourceTree = "<group>"; };
+		C205320E257026760048BE7E /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
+		C205322D25702A800048BE7E /* KrepesBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrepesBaseViewController.swift; sourceTree = "<group>"; };
+		C2053235257048660048BE7E /* KrepesCityListContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrepesCityListContentView.swift; sourceTree = "<group>"; };
+		C25F28D9256EF3D80059C464 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		C25F28E1256EF4650059C464 /* KrepesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrepesCoordinator.swift; sourceTree = "<group>"; };
+		C25F28E5256EF5E70059C464 /* KrepesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrepesListViewController.swift; sourceTree = "<group>"; };
+		C25F28EC256F03480059C464 /* CityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
+		C25F28F5256F05690059C464 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,14 +140,13 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				C205321C257027120048BE7E /* domain */,
+				C25F28F5256F05690059C464 /* SceneDelegate.swift */,
 				7555FF7E242A565900829871 /* AppDelegate.swift */,
-				7555FF80242A565900829871 /* SceneDelegate.swift */,
-				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF84242A565B00829871 /* Assets.xcassets */,
 				7555FF89242A565B00829871 /* LaunchScreen.storyboard */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				7555FF86242A565B00829871 /* Preview Content */,
-				99532EB22569EF0B006E064D /* ViewModel.swift */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -164,6 +183,73 @@
 				7555FFB1242A642300829871 /* shared.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C205320C257026260048BE7E /* imageview */ = {
+			isa = PBXGroup;
+			children = (
+				C20531FD256F0A460048BE7E /* ImageLoader.swift */,
+				C205320E257026760048BE7E /* AsyncImageView.swift */,
+				C2053204256F0DE00048BE7E /* ImageCache.swift */,
+				C2053208256F0E410048BE7E /* EnvironmentValues+ImageCache.swift */,
+			);
+			path = imageview;
+			sourceTree = "<group>";
+		};
+		C205320D2570262F0048BE7E /* view */ = {
+			isa = PBXGroup;
+			children = (
+				7555FF82242A565900829871 /* KrepesListContentView.swift */,
+				C2053235257048660048BE7E /* KrepesCityListContentView.swift */,
+				C205320C257026260048BE7E /* imageview */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		C205321C257027120048BE7E /* domain */ = {
+			isa = PBXGroup;
+			children = (
+				C205321D2570271C0048BE7E /* krepes */,
+			);
+			path = domain;
+			sourceTree = "<group>";
+		};
+		C205321D2570271C0048BE7E /* krepes */ = {
+			isa = PBXGroup;
+			children = (
+				C2053222257027840048BE7E /* coordinator */,
+				C2053221257027770048BE7E /* controller */,
+				C205321E257027360048BE7E /* viewmodel */,
+				C205320D2570262F0048BE7E /* view */,
+			);
+			path = krepes;
+			sourceTree = "<group>";
+		};
+		C205321E257027360048BE7E /* viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				99532EB22569EF0B006E064D /* KrepesViewModel.swift */,
+			);
+			path = viewmodel;
+			sourceTree = "<group>";
+		};
+		C2053221257027770048BE7E /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				C25F28EC256F03480059C464 /* CityViewController.swift */,
+				C25F28E5256EF5E70059C464 /* KrepesListViewController.swift */,
+				C205322D25702A800048BE7E /* KrepesBaseViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		C2053222257027840048BE7E /* coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				C25F28D9256EF3D80059C464 /* Coordinator.swift */,
+				C25F28E1256EF4650059C464 /* KrepesCoordinator.swift */,
+			);
+			path = coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,10 +405,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2053205256F0DE00048BE7E /* ImageCache.swift in Sources */,
+				C2053236257048660048BE7E /* KrepesCityListContentView.swift in Sources */,
 				7555FF7F242A565900829871 /* AppDelegate.swift in Sources */,
-				7555FF81242A565900829871 /* SceneDelegate.swift in Sources */,
-				99532EB32569EF0B006E064D /* ViewModel.swift in Sources */,
-				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				C25F28E6256EF5E70059C464 /* KrepesListViewController.swift in Sources */,
+				C20531FE256F0A460048BE7E /* ImageLoader.swift in Sources */,
+				C2053209256F0E410048BE7E /* EnvironmentValues+ImageCache.swift in Sources */,
+				C25F28F6256F05690059C464 /* SceneDelegate.swift in Sources */,
+				C25F28DA256EF3D80059C464 /* Coordinator.swift in Sources */,
+				99532EB32569EF0B006E064D /* KrepesViewModel.swift in Sources */,
+				C25F28E2256EF4650059C464 /* KrepesCoordinator.swift in Sources */,
+				7555FF83242A565900829871 /* KrepesListContentView.swift in Sources */,
+				C205322E25702A800048BE7E /* KrepesBaseViewController.swift in Sources */,
+				C205320F257026760048BE7E /* AsyncImageView.swift in Sources */,
+				C25F28ED256F03480059C464 /* CityViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +588,7 @@
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../shared/build/xcode-frameworks";
 				INFOPLIST_FILE = iosApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -512,6 +609,7 @@
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../shared/build/xcode-frameworks";
 				INFOPLIST_FILE = iosApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
