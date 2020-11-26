@@ -10,10 +10,10 @@ class KrepesViewModel: ObservableObject {
         self.repository = repository
     }
 
-    func startObservingCrepesUpdates() {
-        repository.startObservingCrepesUpdates(success: { data in
-            self.crepes = data
-        })
+    func startObservingCrepesUpdates(city:City) {
+        repository.getCrepes(city: city) { (crepes: [Crepe]?, error) in
+            self.crepes = crepes!;
+        }
     }
 }
 
