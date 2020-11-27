@@ -36,7 +36,7 @@ fun CrepesList(crepesList: List<Crepe>) {
 }
 
 @Composable
-fun CrepeView(name: String, description: String, url: String, rate: String, image: String) {
+fun CrepeView(name: String, description: String, url: String?, rate: String?, image: String) {
     Row(
         modifier = Modifier.fillMaxWidth() then Modifier.padding(16.dp),
         verticalAlignment = Alignment.CenterVertically
