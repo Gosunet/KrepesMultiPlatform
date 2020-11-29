@@ -1,11 +1,11 @@
 import Foundation
 import shared
 
-
 class KrepesViewModel: ObservableObject {
     @Published var crepes = [Crepe]()
 
-    private let repository: CrepesRepository
+    var repository: CrepesRepository
+    
     init(repository: CrepesRepository) {
         self.repository = repository
     }

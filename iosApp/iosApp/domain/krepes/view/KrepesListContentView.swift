@@ -2,7 +2,8 @@ import SwiftUI
 import shared
 
 struct KrepesListContentView: View {
-    @ObservedObject var krepesViewModel = KrepesViewModel(repository: CrepesRepository())
+    @ObservedObject var krepesViewModel : KrepesViewModel = Injector.getContainer().resolve(KrepesViewModel.self)!
+
     let delegate : KrepesNavigationDelegate?
     let city : City?
     
@@ -24,7 +25,7 @@ struct CrepeView: View {
     var body: some View {
         HStack {
             AsyncImageView(
-                url: URL(string:"https://assets.afcdn.com/recipe/20180713/81162_w1024h768c1cx1944cy2592.jpg")!,
+                url: URL(string:crepe.image)!,
                placeholder: { Text("Loading ...") },
                image: { Image(uiImage: $0).resizable() }
             )
