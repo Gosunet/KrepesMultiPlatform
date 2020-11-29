@@ -3,6 +3,7 @@ import shared
 
 struct KrepesListContentView: View {
     @ObservedObject var krepesViewModel : KrepesViewModel = Injector.getContainer().resolve(KrepesViewModel.self)!
+
     let delegate : KrepesNavigationDelegate?
     let city : City?
     
