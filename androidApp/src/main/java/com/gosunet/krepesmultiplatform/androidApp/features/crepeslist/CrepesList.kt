@@ -62,22 +62,21 @@ fun CrepeView(crepe: Crepe) {
         verticalAlignment = Alignment.CenterVertically
     ) {
 
-        // var bitmap by remember { mutableStateOf<Bitmap?>(null) }
-        // Glide.with(ContextAmbient.current).asBitmap()
-        //     .load(crepe.image)
-        //     .into(object : CustomTarget<Bitmap>() {
-        //         override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
-        //             bitmap = resource
-        //         }
-        //
-        //         override fun onLoadCleared(placeholder: Drawable?) {}
-        //     })
-        // if (bitmap != null)
-        //     Image(
-        //         bitmap!!.asImageAsset(),
-        //         Modifier.preferredSize(60.dp).clip(shape = RoundedCornerShape(4.dp))
-        //     )
-        // else
+        var bitmap by remember { mutableStateOf<Bitmap?>(null) }
+        Glide.with(ContextAmbient.current).asBitmap()
+            .load(crepe.image)
+            .into(object : CustomTarget<Bitmap>() {
+                override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
+                    bitmap = resource
+                }
+
+                override fun onLoadCleared(placeholder: Drawable?) {}
+            })
+        if (bitmap != null)
+            Image(
+                bitmap!!.asImageAsset(),
+                Modifier.preferredSize(70.dp).clip(shape = RoundedCornerShape(4.dp))
+            )
 
         Spacer(modifier = Modifier.preferredSize(20.dp))
 
