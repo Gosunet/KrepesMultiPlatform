@@ -3,7 +3,7 @@ object Versions {
     const val compose = "1.0.0-alpha06"
     const val navigationCompose = "1.0.0-alpha01"
     const val koin = "3.0.0-alpha-4"
-    const val coroutine = "1.3.9-native-mt-2"
+    const val coroutine = "1.4.2-native-mt"
     const val ktor = "1.4.1"
     const val material = "1.2.1"
     const val kotlinCompiler = "1.0.0-alpha06"

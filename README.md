@@ -12,9 +12,8 @@ Because everyone needs a Kotlin Multiplatform library to share crepes recipes ! 
 
 This is a sample project to show an implementation of a Kotlin Multiplatform library with Compose.
 
-The purpose is to share a "business" module to get and transform crepe recipes. Then used the module in an Android, iOS, Desktop and web app.
-
-🚧 Work in progress 🚧
+The purpose is to share a "business" module to get and transform crepe recipes.
+Then used the module in an Android, iOS, Desktop and web app.
 
 ## Library Used
 - [Ktor](https://ktor.io/learn/) for the asynchronous http client.
@@ -31,7 +30,7 @@ The purpose is to share a "business" module to get and transform crepe recipes. 
 
 #### iOS App
 - [SwitfUi](https://developer.apple.com/xcode/swiftui/) in the iOS sample App.
-
+- [Swinject](https://github.com/Swinject/Swinject) for dependency injection in the iOS sample.
 
 ## Author
 

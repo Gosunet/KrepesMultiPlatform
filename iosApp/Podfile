@@ -8,14 +8,4 @@ target 'iosApp' do
 
   # Pods for iosApp
   pod 'Swinject'
-
-  target 'iosAppTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'iosAppUITests' do
-    # Pods for testing
-  end
-
 end
