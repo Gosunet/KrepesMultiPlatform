@@ -1,7 +1,6 @@
 plugins {
     id("com.android.application")
     kotlin("android")
-    kotlin("android.extensions")
 }
 
 apply(from="../buildSrc/ktlint.gradle.kts")
@@ -62,7 +61,7 @@ android {
     }
     composeOptions {
         kotlinCompilerVersion = "1.4.0"
-        kotlinCompilerExtensionVersion = Versions.kotlinCompiler
+        kotlinCompilerExtensionVersion = Versions.compose
     }
     buildTypes {
         getByName("release") {
