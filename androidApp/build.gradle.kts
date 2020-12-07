@@ -45,6 +45,9 @@ dependencies {
     // Glide
     implementation("com.github.bumptech.glide:glide:4.11.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.11.0")
+
+    // Lottie
+    implementation("com.airbnb.android:lottie-compose:1.0.0-alpha03")
 }
 android {
     compileSdkVersion(30)

@@ -27,6 +27,7 @@ Then used the module in an Android, iOS, Desktop and web app.
 - [Navigation](https://developer.android.com/guide/navigation/) for the navigation in the android app.
 - [Jetpack Compose for Desktop](https://www.jetbrains.com/lp/compose/) 🆕
 - [Glide](https://github.com/bumptech/glide) for image loading
+- [Lottie for compose](http://airbnb.io/lottie/#/android-compose) 🆕
 
 #### iOS App
 - [SwitfUi](https://developer.apple.com/xcode/swiftui/) in the iOS sample App.

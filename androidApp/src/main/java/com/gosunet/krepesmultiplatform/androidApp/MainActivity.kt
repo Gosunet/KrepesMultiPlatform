@@ -2,6 +2,7 @@ package com.gosunet.krepesmultiplatform.androidApp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.setContent
 import androidx.navigation.compose.NavHost
@@ -15,6 +16,7 @@ import com.gosunet.krepesmultiplatform.androidApp.features.shared.KrepesThemes
 import com.gosunet.krepesmultiplatform.shared.data.City
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+@ExperimentalAnimationApi
 class MainActivity : AppCompatActivity() {
     private val crepesListViewModel: CrepesListViewModel by viewModel()
 
@@ -32,6 +34,7 @@ sealed class Screen(val title: String) {
     object CrepesDetailScreen : Screen("CrepesDetailScreen")
 }
 
+@ExperimentalAnimationApi
 @Composable
 fun MainLayout(crepesListViewModel: CrepesListViewModel) {
     val navController = rememberNavController()

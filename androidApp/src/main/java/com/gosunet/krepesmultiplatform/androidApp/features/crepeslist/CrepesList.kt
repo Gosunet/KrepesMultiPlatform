@@ -3,12 +3,15 @@ package com.gosunet.krepesmultiplatform.androidApp.features.crepeslist
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.Text
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.preferredSize
@@ -17,6 +20,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ProvidableAmbient
@@ -39,9 +43,11 @@ import androidx.ui.tooling.preview.PreviewParameter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
+import com.gosunet.krepesmultiplatform.androidApp.features.shared.Loader
 import com.gosunet.krepesmultiplatform.shared.data.City
 import com.gosunet.krepesmultiplatform.shared.data.Crepe
 
+@ExperimentalAnimationApi
 @Composable
 fun CrepesList(crepesListViewModel: CrepesListViewModel, city: City = City.Brest) {
     val crepesList = crepesListViewModel.getCrepes(city)
@@ -50,6 +56,15 @@ fun CrepesList(crepesListViewModel: CrepesListViewModel, city: City = City.Brest
             TopAppBar(title = { Text("Crepes liste") })
         },
         bodyContent = {
+            AnimatedVisibility(visible = crepesList.isEmpty()) {
+                Column(
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier.fillMaxWidth().fillMaxHeight().padding(50.dp)
+                ) {
+                    Loader()
+                }
+            }
             LazyColumnFor(
                 items = crepesList,
                 itemContent = { crepe ->
