@@ -1,5 +1,6 @@
 import androidx.compose.desktop.Window
 import androidx.compose.ui.unit.IntSize
+import com.gosunet.krepesmultiplatform.shared.Greeting
 import com.gosunet.krepesmultiplatform.shared.data.Crepe
 import com.gosunet.krepesmultiplatform.shared.di.initKoin
 import kotlinx.coroutines.runBlocking
@@ -14,7 +15,7 @@ fun main() {
         crepesList.addAll(AppInjector.crepesRepository.getCrepes())
     }
 
-    Window(title = "Compose for Desktop", size = IntSize(1000, 1000)) {
+    Window(title = "Compose for ${Greeting().greeting()}", size = IntSize(1000, 1000)) {
         CrepesList(crepesList)
     }
 }

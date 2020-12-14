@@ -1,3 +1,4 @@
+import com.gosunet.krepesmultiplatform.shared.Greeting
 import com.gosunet.krepesmultiplatform.shared.data.City
 import com.gosunet.krepesmultiplatform.shared.data.Crepe
 import com.gosunet.krepesmultiplatform.shared.data.CrepesRepository
@@ -70,7 +71,7 @@ val App = functionalComponent<RProps> { _ ->
                 fontFamily = "Verdana"
                 textAlign = TextAlign.center;
             }
-            +"Welcome to Krepes multiplatform \uD83D\uDC4B"
+            +"Welcome to Krepes multiplatform ${Greeting().greeting()} \uD83D\uDC4B"
         }
         styledUl {
             css {

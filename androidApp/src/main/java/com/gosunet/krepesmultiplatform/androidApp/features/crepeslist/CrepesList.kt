@@ -44,6 +44,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 import com.gosunet.krepesmultiplatform.androidApp.features.shared.Loader
+import com.gosunet.krepesmultiplatform.shared.Greeting
 import com.gosunet.krepesmultiplatform.shared.data.City
 import com.gosunet.krepesmultiplatform.shared.data.Crepe
 
@@ -53,7 +54,7 @@ fun CrepesList(crepesListViewModel: CrepesListViewModel, city: City = City.Brest
     val crepesList = crepesListViewModel.getCrepes(city)
     Scaffold(
         topBar = {
-            TopAppBar(title = { Text("Crepes liste") })
+            TopAppBar(title = { Text("Krepes multiplatform ${Greeting().greeting()}") })
         },
         bodyContent = {
             AnimatedVisibility(visible = crepesList.isEmpty()) {
