@@ -1,12 +1,10 @@
-import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
-
 plugins {
     kotlin("multiplatform")
     id("org.jetbrains.kotlin.native.cocoapods")
     id("com.android.library")
     kotlin("plugin.serialization") version "1.4.10"
 }
-apply(from="../buildSrc/ktlint.gradle.kts")
+apply(from = "../buildSrc/ktlint.gradle.kts")
 
 group = "com.gosunet.krepesmultiplatform"
 version = "1.0"
@@ -29,7 +27,7 @@ android {
 
 kotlin {
     android()
-    ios ()
+    ios()
     cocoapods {
         summary = "shared library"
         homepage = "https://github.com/JetBrains/kotlin"
@@ -52,7 +50,7 @@ kotlin {
                 implementation("io.ktor:ktor-client-logging:${Versions.ktor}")
                 implementation("io.ktor:ktor-client-serialization:${Versions.ktor}")
                 // coroutine
-                implementation( "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutine}") {
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutine}") {
                     isForce = true
                 }
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinxSerialization}")
@@ -62,6 +60,10 @@ kotlin {
             dependencies {
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
+                implementation("io.mockk:mockk-common:1.9.3")
+                implementation("io.mockk:mockk:1.9.3")
+                implementation("org.koin:koin-test:${Versions.koin}")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutine}")
             }
         }
         val androidMain by getting {
@@ -81,20 +83,27 @@ kotlin {
                 implementation("io.ktor:ktor-client-ios:${Versions.ktor}")
             }
         }
-        val iosTest by getting{
+        val iosTest by getting {
             dependencies {
                 implementation("io.ktor:ktor-client-ios:${Versions.ktor}")
             }
         }
-        val desktopMain by getting{
+        val desktopMain by getting {
             dependencies {
                 implementation("io.ktor:ktor-client-apache:${Versions.ktor}")
             }
         }
-        val jsMain by getting {
+        val desktopTest by getting {
             dependencies {
-                implementation( "io.ktor:ktor-client-js:${Versions.ktor}")
+                implementation(kotlin("test-common"))
+                implementation(kotlin("test-annotations-common"))
             }
         }
+        val jsMain by getting {
+            dependencies {
+                implementation("io.ktor:ktor-client-js:${Versions.ktor}")
+            }
+        }
+        val jsTest by getting
     }
 }
