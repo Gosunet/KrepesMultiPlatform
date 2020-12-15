@@ -21,7 +21,7 @@ Then used the module in an Android, iOS, Desktop and web app.
 - [Koin for multiplatform](https://doc.insert-koin.io/#/setup/koin_mp) for dependency injection 🆕
 - [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html).
 - [Ktlint](https://github.com/pinterest/ktlint) as Kotlin linter.
-- [MockK] for mocking when testing shared library.
+- [MockK](https://mockk.io/) for mocking when testing shared library.
 
 #### Android and Desktop App
 - [Jetpack Compose](https://developer.android.com/jetpack/compose) in the sample android app for creating the ui.
