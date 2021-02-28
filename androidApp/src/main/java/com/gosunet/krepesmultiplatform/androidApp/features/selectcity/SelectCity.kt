@@ -13,10 +13,10 @@ import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.imageResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
-import androidx.ui.tooling.preview.Preview
 import com.gosunet.krepesmultiplatform.androidApp.R
 import com.gosunet.krepesmultiplatform.shared.data.City
 
@@ -27,7 +27,7 @@ fun SelectCity(citySelected: (city: City) -> Unit = {}) {
         topBar = {
             TopAppBar(title = { Text(stringResource(id = R.string.select_city)) })
         },
-        bodyContent = {
+        content = {
             Column(
                 modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
@@ -39,7 +39,8 @@ fun SelectCity(citySelected: (city: City) -> Unit = {}) {
                         modifier = Modifier.padding(Dp(10f))
                     ) {
                         Image(
-                            asset = imageResource(id = if (it == City.Rennes) R.drawable.rennes else R.drawable.brest)
+                            painterResource(id = if (it == City.Rennes) R.drawable.rennes else R.drawable.brest),
+                            "Image de ${it.city}"
                         )
                     }
                 }

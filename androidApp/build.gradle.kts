@@ -14,7 +14,7 @@ dependencies {
     implementation("com.google.android.material:material:${Versions.material}")
     implementation("androidx.appcompat:appcompat:1.2.0")
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutine}")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutine}")
 
@@ -26,10 +26,23 @@ dependencies {
     // Compose
     implementation("androidx.compose.ui:ui:${Versions.compose}")
     // Tooling support (Previews, etc.)
-    implementation("androidx.ui:ui-tooling:${Versions.compose}")
-    implementation("androidx.compose.ui:ui-graphics:${Versions.compose}")
+    implementation("androidx.compose.ui:ui-tooling:${Versions.compose}")
     // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
     implementation("androidx.compose.foundation:foundation:${Versions.compose}")
+    // Material Design
+    implementation("androidx.compose.material:material:${Versions.compose}")
+    // Material design icons
+    implementation("androidx.compose.material:material-icons-core:${Versions.compose}")
+    implementation("androidx.compose.material:material-icons-extended:${Versions.compose}")
+    // Integration with activities
+    implementation("androidx.activity:activity-compose:1.3.0-alpha03")
+    // Integration with ViewModels
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha02")
+
+    // Integration with observables
+    implementation("androidx.compose.runtime:runtime:${Versions.compose}")
+    implementation("androidx.compose.runtime:runtime-livedata:${Versions.compose}")
+
     // Material Design
     implementation("androidx.compose.material:material:${Versions.compose}")
     // Material design icons
@@ -43,11 +56,9 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:${Versions.navigationCompose}")
 
     // Glide
-    implementation("com.github.bumptech.glide:glide:4.11.0")
-    annotationProcessor("com.github.bumptech.glide:compiler:4.11.0")
-
+    implementation("dev.chrisbanes.accompanist:accompanist-coil:0.6.1")
     // Lottie
-    implementation("com.airbnb.android:lottie-compose:1.0.0-alpha03")
+    implementation("com.airbnb.android:lottie-compose:1.0.0-alpha07-SNAPSHOT")
 }
 android {
     compileSdkVersion(30)
@@ -63,7 +74,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerVersion = "1.4.0"
+        kotlinCompilerVersion = "1.4.30"
         kotlinCompilerExtensionVersion = Versions.compose
     }
     buildTypes {
@@ -87,8 +98,6 @@ android {
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
-        freeCompilerArgs = listOf("-Xallow-jvm-ir-dependencies", "-Xskip-prerelease-check",
-            "-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi"
-        )
+        freeCompilerArgs = listOf("-Xallow-jvm-ir-dependencies")
     }
 }

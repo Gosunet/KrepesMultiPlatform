@@ -23,14 +23,16 @@ struct CrepeView: View {
     var crepe: Crepe
 
     var body: some View {
-        HStack {
-            AsyncImageView(
-                url: URL(string:crepe.image)!,
-               placeholder: { Text("Loading ...") },
-               image: { Image(uiImage: $0).resizable() }
-            )
-           .frame(idealHeight: 50)
-                
+        if URL(string:crepe.image) != nil {
+            HStack {
+                AsyncImageView(
+                    url: URL(string:crepe.image)!,
+                   placeholder: { Text("Loading ...") },
+                   image: { Image(uiImage: $0).resizable() }
+                )
+               .frame(idealWidth: 50, idealHeight: 50)
+           }
+
             Text(crepe.name).font(.headline)
         }
     }

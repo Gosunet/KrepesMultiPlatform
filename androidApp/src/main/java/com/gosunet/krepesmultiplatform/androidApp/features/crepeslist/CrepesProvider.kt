@@ -1,11 +1,12 @@
 package com.gosunet.krepesmultiplatform.androidApp.features.crepeslist
 
-import androidx.ui.tooling.preview.datasource.CollectionPreviewParameterProvider
+import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import com.gosunet.krepesmultiplatform.shared.data.Crepe
 
-class CrepesProvider : CollectionPreviewParameterProvider<Crepe>(
-    listOf(
-        Crepe("Crepe 1", "Bla bla", "crepe.com", "1.1", "image.com"),
-        Crepe("Crepe 2", "Bla bla", "crepe.com", "1.1", "image.com")
-    )
-)
+class CrepesProvider : PreviewParameterProvider<Crepe> {
+    override val values: Sequence<Crepe>
+        get() = sequenceOf(
+            Crepe("Crepe 1", "Bla bla", "crepe.com", "1.1", "image.com"),
+            Crepe("Crepe 2", "Bla bla", "crepe.com", "1.1", "image.com")
+        )
+}

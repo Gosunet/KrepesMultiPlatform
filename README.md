@@ -27,7 +27,7 @@ Then used the module in an Android, iOS, Desktop and web app.
 - [Jetpack Compose](https://developer.android.com/jetpack/compose) in the sample android app for creating the ui.
 - [Navigation](https://developer.android.com/guide/navigation/) for the navigation in the android app.
 - [Jetpack Compose for Desktop](https://www.jetbrains.com/lp/compose/) 🆕
-- [Glide](https://github.com/bumptech/glide) for image loading
+- [Coil](https://github.com/chrisbanes/accompanist/tree/main/coil) for image loading
 - [Lottie for compose](http://airbnb.io/lottie/#/android-compose) 🆕
 
 #### iOS App

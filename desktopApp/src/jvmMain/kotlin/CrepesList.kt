@@ -2,7 +2,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumnFor
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
@@ -22,14 +23,13 @@ fun CrepesList(crepesList: List<Crepe>) {
         topBar = {
             TopAppBar(title = { Text("Crepes liste") })
         },
-        bodyContent = {
+        content = {
             MaterialTheme {
-                LazyColumnFor(
-                    items = crepesList,
-                    itemContent = { crepe ->
+                LazyColumn {
+                    items(crepesList) { crepe ->
                         CrepeView(crepe.name, crepe.description, crepe.url, crepe.rate, crepe.image)
                     }
-                )
+                }
             }
         }
     )
