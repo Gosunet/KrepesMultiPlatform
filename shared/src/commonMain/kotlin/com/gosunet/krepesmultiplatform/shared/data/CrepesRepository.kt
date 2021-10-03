@@ -1,7 +1,7 @@
 package com.gosunet.krepesmultiplatform.shared.data
 
-import org.koin.core.KoinComponent
-import org.koin.core.inject
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 
 class CrepesRepository : KoinComponent {
     private val crepesApi: CrepesApi by inject()

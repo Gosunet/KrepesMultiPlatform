@@ -6,8 +6,10 @@ import io.ktor.client.request.headers
 import io.ktor.client.request.request
 import io.ktor.client.request.url
 import io.ktor.http.HttpMethod
-import org.koin.core.KoinComponent
+import io.ktor.util.*
+import org.koin.core.component.KoinComponent
 
+@OptIn(InternalAPI::class)
 class CrepesApi(private val httpClient: HttpClient) : KoinComponent {
 
     private val baseApi = "https://u5iywk3bs4.execute-api.eu-west-3.amazonaws.com/Prod"

@@ -6,32 +6,39 @@ dependencies {
     implementation(kotlin("stdlib-js"))
 
     // Koin for Kotlin
-    implementation("org.koin:koin-core:${Versions.koin}")
+    implementation("io.insert-koin:koin-core:3.1.2")
 
-    implementation("org.jetbrains.kotlinx:kotlinx-html-js:0.7.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-html-js:0.7.3")
 
-    implementation("org.jetbrains:kotlin-react:16.13.1-pre.110-kotlin-1.4.0")
-    implementation("org.jetbrains:kotlin-react-dom:16.13.1-pre.110-kotlin-1.4.0")
-    implementation("org.jetbrains:kotlin-react-router-dom:5.1.2-pre.110-kotlin-1.4.0")
-    implementation(npm("react", "16.13.0"))
-    implementation(npm("react-dom", "16.13.0"))
+    //React, React DOM + Wrappers
+    implementation("org.jetbrains:kotlin-react:17.0.2-pre.154-kotlin-1.5.0")
+    implementation("org.jetbrains:kotlin-react-dom:17.0.2-pre.154-kotlin-1.5.0")
+    implementation(npm("react", "16.8.0"))
+    implementation(npm("react-dom", "16.8.0"))
 
-    // Styled-Css
-    implementation("org.jetbrains:kotlin-styled:1.0.0-pre.110-kotlin-1.4.0")
-    implementation(npm("styled-components", "4.4.0"))
-    implementation(npm("inline-style-prefixer", "~6.0.0"))
+    //Kotlin Styled
+    implementation("org.jetbrains:kotlin-styled:5.2.3-pre.154-kotlin-1.5.0")
+    implementation(npm("styled-components", "~5.2.3"))
 
     implementation(project(":shared"))
 }
 
 
 kotlin {
-    js {
-        browser {}
-        useCommonJs()
-        binaries.executable()
+    kotlin {
+        js {
+            browser {
+                commonWebpackConfig {
+                    cssSupport.enabled = true
+                }
+            }
+            binaries.executable()
+        }
     }
 }
 repositories {
     mavenCentral()
+    maven("https://dl.bintray.com/kotlin/kotlin-eap")
+    maven("https://maven.pkg.jetbrains.space/kotlin/p/kotlin/kotlin-js-wrappers")
+    maven("https://kotlin.bintray.com/kotlin-js-wrappers/")
 }

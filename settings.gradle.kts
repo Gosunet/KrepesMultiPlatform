@@ -1,13 +1,14 @@
 pluginManagement {
     repositories {
+        google()
         gradlePluginPortal()
         mavenCentral()
+        maven(url = "https://plugins.gradle.org/m2/")
+        maven(url = "https://dl.bintray.com/kotlin/kotlin-eap")
         maven(url = "https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }
 }
 rootProject.name = "KrepesMultiPlatform"
-
-enableFeaturePreview("GRADLE_METADATA")
 
 include(":androidApp")
 include(":shared")

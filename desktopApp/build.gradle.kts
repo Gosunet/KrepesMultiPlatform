@@ -1,30 +1,33 @@
 import org.jetbrains.compose.compose
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("multiplatform") // kotlin("jvm") doesn't work well in IDEA/AndroidStudio (https://github.com/JetBrains/compose-jb/issues/22)
-    id("org.jetbrains.compose")
+    kotlin("jvm")
+    id("org.jetbrains.compose") version "1.0.0-alpha4-build362"
 }
+
 
 apply(from="../buildSrc/ktlint.gradle.kts")
 
-kotlin {
-    jvm {
-        withJava()
-    }
-    sourceSets {
-        named("jvmMain") {
-            dependencies {
-                implementation(compose.desktop.currentOs)
-                implementation(project(":shared"))
+repositories {
+    mavenCentral()
+    maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+    google()
+}
 
-                // Koin for Kotlin
-                implementation("org.koin:koin-core:${Versions.koin}")
+dependencies {
+    implementation(compose.desktop.currentOs)
+    implementation(project(":shared"))
 
-                // coroutines
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutine}")
-            }
-        }
-    }
+    // Koin for Kotlin
+    implementation("io.insert-koin:koin-core:3.1.2")
+
+    // coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutine}")
+}
+
+tasks.withType<KotlinCompile> {
+    kotlinOptions.jvmTarget = "1.8"
 }
 
 compose.desktop {

@@ -7,7 +7,6 @@ import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
 import com.gosunet.krepesmultiplatform.androidApp.features.crepeslist.CrepesList
 import com.gosunet.krepesmultiplatform.androidApp.features.crepeslist.CrepesListViewModel

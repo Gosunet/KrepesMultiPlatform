@@ -1,8 +1,8 @@
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.kotlin.native.cocoapods")
+    kotlin("native.cocoapods")
     id("com.android.library")
-    kotlin("plugin.serialization") version "1.4.10"
+    kotlin("plugin.serialization") version "1.5.30"
 }
 apply(from = "../buildSrc/ktlint.gradle.kts")
 
@@ -10,28 +10,47 @@ group = "com.gosunet.krepesmultiplatform"
 version = "1.0"
 
 android {
-    compileSdkVersion(30)
+    compileSdk = 31
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
-        minSdkVersion(24)
-        targetSdkVersion(30)
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = 24
+        targetSdk = 31
     }
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
         }
     }
+
+    configurations {
+        create("androidTestApi")
+        create("androidTestDebugApi")
+        create("androidTestReleaseApi")
+        create("testApi")
+        create("testDebugApi")
+        create("testReleaseApi")
+    }
 }
 
 kotlin {
     android()
-    ios()
+
+    val iosTarget: (String, org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget.() -> Unit) -> org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget = when {
+        System.getenv("SDK_NAME")?.startsWith("iphoneos") == true -> ::iosArm64
+        System.getenv("NATIVE_ARCH")?.startsWith("arm") == true -> ::iosSimulatorArm64
+        else -> ::iosX64
+    }
+
+    iosTarget("ios") {}
+
     cocoapods {
         summary = "shared library"
         homepage = "https://github.com/JetBrains/kotlin"
+        ios.deploymentTarget = "14.1"
+        frameworkName = "shared"
+        podfile = project.file("../iosApp/Podfile")
     }
+
     jvm("desktop")
 
     js {
@@ -43,7 +62,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 // koin
-                implementation("org.koin:koin-core:${Versions.koin}")
+                implementation("io.insert-koin:koin-core:3.1.2")
                 // ktor
                 implementation("io.ktor:ktor-client-core:${Versions.ktor}")
                 implementation("io.ktor:ktor-client-json:${Versions.ktor}")
@@ -60,9 +79,9 @@ kotlin {
             dependencies {
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
-                implementation("io.mockk:mockk-common:1.9.3")
-                implementation("io.mockk:mockk:1.9.3")
-                implementation("org.koin:koin-test:${Versions.koin}")
+//                implementation("io.mockk:mockk-common:1.12.0")
+//                implementation("io.mockk:mockk:1.12.0")
+                implementation("io.insert-koin:koin-test:3.1.2")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutine}")
             }
         }
@@ -75,7 +94,7 @@ kotlin {
         val androidTest by getting {
             dependencies {
                 implementation(kotlin("test-junit"))
-                implementation("junit:junit:4.13.1")
+                implementation("junit:junit:4.13.2")
             }
         }
         val iosMain by getting {

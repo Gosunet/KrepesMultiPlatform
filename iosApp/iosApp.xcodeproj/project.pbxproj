@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2C1215503450B45156F9F3AA /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C7461168B04C9E31C22339 /* Pods_iosApp.framework */; };
-		6F3222EBA5C5327AC8FF7D38 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		7555FF7F242A565900829871 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF7E242A565900829871 /* AppDelegate.swift */; };
 		7555FF83242A565900829871 /* KrepesListContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* KrepesListContentView.swift */; };
 		7555FF85242A565B00829871 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7555FF84242A565B00829871 /* Assets.xcassets */; };
@@ -55,7 +54,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C20EE478257407790041304B /* shared.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -102,7 +100,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C1215503450B45156F9F3AA /* Pods_iosApp.framework in Frameworks */,
-				C20EE477257407790041304B /* shared.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +277,6 @@
 			buildConfigurationList = 7555FFA5242A565B00829871 /* Build configuration list for PBXNativeTarget "iosApp" */;
 			buildPhases = (
 				567ADF53E1A088FD038BF74E /* [CP] Check Pods Manifest.lock */,
-				7555FFB5242A651A00829871 /* ShellScript */,
 				7555FF77242A565900829871 /* Sources */,
 				7555FF78242A565900829871 /* Frameworks */,
 				7555FF79242A565900829871 /* Resources */,

@@ -2,6 +2,7 @@ package com.gosunet.krepesmultiplatform.androidApp.features.crepeslist
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -30,11 +31,12 @@ import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.annotation.ExperimentalCoilApi
+import coil.compose.rememberImagePainter
 import com.gosunet.krepesmultiplatform.androidApp.features.shared.Loader
 import com.gosunet.krepesmultiplatform.shared.Greeting
 import com.gosunet.krepesmultiplatform.shared.data.City
 import com.gosunet.krepesmultiplatform.shared.data.Crepe
-import dev.chrisbanes.accompanist.coil.CoilImage
 
 @ExperimentalAnimationApi
 @Composable
@@ -98,12 +100,13 @@ fun CrepeView(crepe: Crepe) {
     }
 }
 
+@ExperimentalCoilApi
 @Composable
 private fun ImageView(
     crepe: Crepe
 ) {
-    CoilImage(
-        data = crepe.image,
+    Image(
+        painter = rememberImagePainter(crepe.image),
         contentDescription = "Crepe image",
         modifier = Modifier.size(70.dp).clip(shape = RoundedCornerShape(4.dp))
     )
