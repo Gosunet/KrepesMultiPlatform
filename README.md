@@ -18,7 +18,7 @@ Then used the module in an Android, iOS, Desktop and web app.
 ## Library Used
 - [Ktor](https://ktor.io/learn/) for the asynchronous http client.
 - [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization).
-- [Koin for multiplatform](https://doc.insert-koin.io/#/setup/koin_mp) for dependency injection 🆕
+- [Koin for multiplatform](https://doc.insert-koin.io/#/setup/koin_mp) for dependency injection
 - [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html).
 - [Ktlint](https://github.com/pinterest/ktlint) as Kotlin linter.
 - [MockK](https://mockk.io/) for mocking when testing shared library.
@@ -26,9 +26,9 @@ Then used the module in an Android, iOS, Desktop and web app.
 #### Android and Desktop App
 - [Jetpack Compose](https://developer.android.com/jetpack/compose) in the sample android app for creating the ui.
 - [Navigation](https://developer.android.com/guide/navigation/) for the navigation in the android app.
-- [Jetpack Compose for Desktop](https://www.jetbrains.com/lp/compose/) 🆕
-- [Coil](https://github.com/chrisbanes/accompanist/tree/main/coil) for image loading
-- [Lottie for compose](http://airbnb.io/lottie/#/android-compose) 🆕
+- [Jetpack Compose for Desktop](https://www.jetbrains.com/lp/compose/)
+- [Coil](https://coil-kt.github.io/coil/compose/) for image loading
+- [Lottie for compose](http://airbnb.io/lottie/#/android-compose)
 
 #### iOS App
 - [SwitfUi](https://developer.apple.com/xcode/swiftui/) in the iOS sample App.

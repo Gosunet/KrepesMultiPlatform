@@ -1,11 +1,10 @@
 import org.jetbrains.compose.compose
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm")
-    id("org.jetbrains.compose") version "1.0.0-alpha4-build362"
+    id("org.jetbrains.compose") version "1.0.0-alpha4-build328"
+    application
 }
-
 
 apply(from="../buildSrc/ktlint.gradle.kts")
 
@@ -26,12 +25,6 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutine}")
 }
 
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
-}
-
-compose.desktop {
-    application {
-        mainClass = "MainKt"
-    }
+application {
+    mainClass.set("MainKt")
 }
