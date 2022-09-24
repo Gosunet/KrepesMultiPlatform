@@ -1,5 +1,5 @@
 import Foundation
-import sharedxxx
+import shared
 
 class KrepesViewModel: ObservableObject {
     @Published var crepes = [Crepe]()
