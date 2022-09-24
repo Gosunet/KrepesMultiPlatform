@@ -11,45 +11,45 @@ version = "1.0"
 dependencies {
     implementation(project(":shared"))
     // implementation("androidx.compose.compiler:compiler:${Versions.kotlinCompiler}")
-    implementation("com.google.android.material:material:1.4.0")
-    implementation("androidx.appcompat:appcompat:1.3.1")
+    implementation("com.google.android.material:material:1.6.1")
+    implementation("androidx.appcompat:appcompat:1.5.1")
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
 
     // Koin AndroidX ViewModel feature
-    implementation("io.insert-koin:koin-android:3.1.2")
+    implementation("io.insert-koin:koin-android:${Versions.koin}")
 
     // Compose
-    implementation("androidx.compose.ui:ui:1.0.3")
+    implementation("androidx.compose.ui:ui:1.2.1")
     // Tooling support (Previews, etc.)
-    implementation("androidx.compose.ui:ui-tooling:1.0.3")
+    implementation("androidx.compose.ui:ui-tooling:1.2.1")
     // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
-    implementation("androidx.compose.foundation:foundation:1.0.3")
+    implementation("androidx.compose.foundation:foundation:1.2.1")
     // Material Design
-    implementation("androidx.compose.material:material:1.0.3")
+    implementation("androidx.compose.material:material:1.2.1")
     // Material design icons
-    implementation("androidx.compose.material:material-icons-core:1.0.3")
-    implementation("androidx.compose.material:material-icons-extended:1.0.3")
+    implementation("androidx.compose.material:material-icons-core:1.2.1")
+    implementation("androidx.compose.material:material-icons-extended:1.2.1")
     // Integration with activities
-    implementation("androidx.activity:activity-compose:1.3.1")
+    implementation("androidx.activity:activity-compose:1.6.0")
     // Integration with ViewModels
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.4.0-rc01")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.0-alpha02")
 
     // Integration with observables
-    implementation("androidx.compose.runtime:runtime:1.0.3")
-    implementation("androidx.compose.runtime:runtime-livedata:1.0.3")
+    implementation("androidx.compose.runtime:runtime:1.2.1")
+    implementation("androidx.compose.runtime:runtime-livedata:1.2.1")
 
     // Material Design
-    implementation("androidx.compose.material:material:1.0.3")
+    implementation("androidx.compose.material:material:1.2.1")
     // Material design icons
-    implementation("androidx.compose.material:material-icons-core:1.0.3")
-    implementation("androidx.compose.material:material-icons-extended:1.0.3")
+    implementation("androidx.compose.material:material-icons-core:1.2.1")
+    implementation("androidx.compose.material:material-icons-extended:1.2.1")
 
     // Integration with observables
-    implementation("androidx.compose.runtime:runtime-livedata:1.0.3")
+    implementation("androidx.compose.runtime:runtime-livedata:1.2.1")
 
     // Jetpack Compose Integration
-    implementation("androidx.navigation:navigation-compose:2.4.0-alpha10")
+    implementation("androidx.navigation:navigation-compose:2.6.0-alpha01")
 
     // Coil
     implementation("io.coil-kt:coil-compose:1.3.2")
@@ -57,11 +57,11 @@ dependencies {
     implementation("com.airbnb.android:lottie-compose:4.1.0")
 }
 android {
-    compileSdk = 31
+    compileSdk = 33
     defaultConfig {
         applicationId = "com.gosunet.krepesmultiplatform.androidApp"
         minSdk = 24
-        targetSdk = 31
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
     }
@@ -79,19 +79,16 @@ android {
     }
     // Set both the Java and Kotlin compilers to target Java 8.
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     packagingOptions {
-        exclude("META-INF/*.kotlin_module")
+        resources {
+            excludes += setOf("META-INF/*.kotlin_module")
+        }
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
-}
-
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
-    }
+    namespace = "com.gosunet.krepesmultiplatform.androidApp"
 }

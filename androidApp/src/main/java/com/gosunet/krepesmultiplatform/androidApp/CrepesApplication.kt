@@ -11,11 +11,10 @@ class CrepesApplication : Application(), KoinComponent {
     override fun onCreate() {
         super.onCreate()
 
-        @Suppress("EXPERIMENTAL_API_USAGE") // koin multiplatform experimental
         initKoin {
-            modules(appModule)
-            androidLogger()
             androidContext(this@CrepesApplication)
+            androidLogger()
+            modules(appModule)
         }
     }
 }
