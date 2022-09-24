@@ -45,7 +45,7 @@ import styled.styledLi
 import styled.styledP
 import styled.styledUl
 
-val App = functionalComponent<RProps> { _ ->
+val App = functionalComponent<RProps> {
     val appDependencies = useContext(AppDependenciesContext)
     val repository: CrepesRepository = appDependencies.repository
 
@@ -69,7 +69,7 @@ val App = functionalComponent<RProps> { _ ->
         styledH1 {
             css {
                 fontFamily = "Verdana"
-                textAlign = TextAlign.center;
+                textAlign = TextAlign.center
             }
             +"Welcome to Krepes multiplatform ${Greeting().greeting()} \uD83D\uDC4B"
         }

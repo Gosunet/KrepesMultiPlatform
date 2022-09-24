@@ -1,7 +1,9 @@
 object Versions {
-    const val compose = "1.0.3"
-    const val coroutine = "1.5.0-native-mt"
-    const val ktor = "1.6.4"
-    const val material = "1.3.0"
-    const val kotlinxSerialization = "1.0.1"
+    const val compose = "1.3.1"
+    const val coroutine = "1.6.4"
+    const val ktor = "2.1.1"
+    const val koin = "3.2.1"
+    const val material = "1.6.1"
+    const val kotlinxSerialization = "1.4.0"
+    const val composeDesktopWeb = "1.2.0-alpha01-dev755"
 }

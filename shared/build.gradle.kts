@@ -1,8 +1,12 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     kotlin("multiplatform")
-    kotlin("native.cocoapods")
+    id("org.jetbrains.kotlin.native.cocoapods")
     id("com.android.library")
-    kotlin("plugin.serialization") version "1.5.30"
+    kotlin("plugin.serialization") version "1.7.10"
+    id("com.rickclephas.kmp.nativecoroutines")
+    id("io.github.luca992.multiplatform-swiftpackage") version "2.0.5-arm64"
 }
 apply(from = "../buildSrc/ktlint.gradle.kts")
 
@@ -10,17 +14,18 @@ group = "com.gosunet.krepesmultiplatform"
 version = "1.0"
 
 android {
-    compileSdk = 31
+    compileSdk = 33
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
         minSdk = 24
-        targetSdk = 31
+        targetSdk = 33
     }
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
         }
     }
+    namespace = "com.gosunet.krepesmultiplatform.android"
 
     configurations {
         create("androidTestApi")
@@ -35,23 +40,24 @@ android {
 kotlin {
     android()
 
-    val iosTarget: (String, org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget.() -> Unit) -> org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget = when {
-        System.getenv("SDK_NAME")?.startsWith("iphoneos") == true -> ::iosArm64
-        System.getenv("NATIVE_ARCH")?.startsWith("arm") == true -> ::iosSimulatorArm64
-        else -> ::iosX64
+    listOf(
+        iosX64(),
+        iosArm64(),
+        iosSimulatorArm64()
+    ).forEach {
+        it.binaries.framework {
+            baseName = "shared"
+        }
     }
 
-    iosTarget("ios") {}
+    macosX64("macOS")
 
     cocoapods {
         summary = "shared library"
         homepage = "https://github.com/JetBrains/kotlin"
-        ios.deploymentTarget = "14.1"
-        frameworkName = "shared"
-        podfile = project.file("../iosApp/Podfile")
     }
 
-    jvm("desktop")
+    jvm()
 
     js {
         browser {
@@ -62,12 +68,14 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 // koin
-                implementation("io.insert-koin:koin-core:3.1.2")
+                implementation("io.insert-koin:koin-core:${Versions.koin}")
                 // ktor
                 implementation("io.ktor:ktor-client-core:${Versions.ktor}")
                 implementation("io.ktor:ktor-client-json:${Versions.ktor}")
                 implementation("io.ktor:ktor-client-logging:${Versions.ktor}")
                 implementation("io.ktor:ktor-client-serialization:${Versions.ktor}")
+                implementation("io.ktor:ktor-client-content-negotiation:${Versions.ktor}")
+                implementation("io.ktor:ktor-serialization-kotlinx-json:${Versions.ktor}")
                 // coroutine
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutine}") {
                     isForce = true
@@ -81,7 +89,7 @@ kotlin {
                 implementation(kotlin("test-annotations-common"))
 //                implementation("io.mockk:mockk-common:1.12.0")
 //                implementation("io.mockk:mockk:1.12.0")
-                implementation("io.insert-koin:koin-test:3.1.2")
+                implementation("io.insert-koin:koin-test:${Versions.koin}")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutine}")
             }
         }
@@ -97,22 +105,33 @@ kotlin {
                 implementation("junit:junit:4.13.2")
             }
         }
-        val iosMain by getting {
+        val iosX64Main by getting
+        val iosArm64Main by getting
+        val iosSimulatorArm64Main by getting
+        val iosMain by creating {
+            dependsOn(commonMain)
+            iosX64Main.dependsOn(this)
+            iosArm64Main.dependsOn(this)
+            iosSimulatorArm64Main.dependsOn(this)
             dependencies {
                 implementation("io.ktor:ktor-client-ios:${Versions.ktor}")
             }
         }
-        val iosTest by getting {
+        val iosX64Test by getting
+        val iosArm64Test by getting
+        val iosSimulatorArm64Test by getting
+        val iosTest by creating {
+            dependsOn(commonTest)
+            iosX64Test.dependsOn(this)
+            iosArm64Test.dependsOn(this)
+            iosSimulatorArm64Test.dependsOn(this)
+        }
+        val jvmMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-ios:${Versions.ktor}")
+                implementation("io.ktor:ktor-client-java:${Versions.ktor}")
             }
         }
-        val desktopMain by getting {
-            dependencies {
-                implementation("io.ktor:ktor-client-apache:${Versions.ktor}")
-            }
-        }
-        val desktopTest by getting {
+        val jvmTest by getting {
             dependencies {
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
@@ -124,5 +143,19 @@ kotlin {
             }
         }
         val jsTest by getting
+    }
+}
+
+tasks.withType<KotlinCompile> {
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+}
+
+multiplatformSwiftPackage {
+    packageName("KrepesMultiPlatformKit")
+    swiftToolsVersion("5.3")
+    targetPlatforms {
+        iOS { v("14") }
     }
 }

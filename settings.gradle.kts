@@ -1,18 +1,19 @@
 pluginManagement {
     repositories {
-        google()
         gradlePluginPortal()
         mavenCentral()
-        maven(url = "https://plugins.gradle.org/m2/")
-        maven(url = "https://dl.bintray.com/kotlin/kotlin-eap")
-        maven(url = "https://maven.pkg.jetbrains.space/public/p/compose/dev")
+        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+    }
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id.startsWith("com.google.cloud.tools.appengine")) {
+                useModule("com.google.cloud.tools:appengine-gradle-plugin:${requested.version}")
+            }
+        }
     }
 }
 rootProject.name = "KrepesMultiPlatform"
 
-include(":androidApp")
-include(":shared")
-include(":desktopApp")
-include(":web")
+include(":androidApp", ":shared", ":desktopApp", ":web")
 
 
