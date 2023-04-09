@@ -4,7 +4,8 @@ plugins {
     kotlin("multiplatform")
     id("org.jetbrains.kotlin.native.cocoapods")
     id("com.android.library")
-    kotlin("plugin.serialization") version "1.7.10"
+    kotlin("plugin.serialization")
+    id("com.google.devtools.ksp")
     id("com.rickclephas.kmp.nativecoroutines")
     id("io.github.luca992.multiplatform-swiftpackage") version "2.0.5-arm64"
 }
@@ -18,7 +19,6 @@ android {
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
         minSdk = 24
-        targetSdk = 33
     }
     buildTypes {
         getByName("release") {
@@ -59,7 +59,7 @@ kotlin {
 
     jvm()
 
-    js {
+    js(IR) {
         browser {
         }
     }
@@ -99,7 +99,7 @@ kotlin {
                 implementation("com.google.android.material:material:${Versions.material}")
             }
         }
-        val androidTest by getting {
+        val androidTest by creating {
             dependencies {
                 implementation(kotlin("test-junit"))
                 implementation("junit:junit:4.13.2")
@@ -158,4 +158,8 @@ multiplatformSwiftPackage {
     targetPlatforms {
         iOS { v("14") }
     }
+}
+
+kotlin.sourceSets.all {
+    languageSettings.optIn("kotlin.experimental.ExperimentalObjCName")
 }

@@ -10,4 +10,6 @@ target 'iosApp' do
 
   # Pods for iosApp
   pod 'Swinject'
+
+  pod 'KMPNativeCoroutinesAsync', '1.0.0-ALPHA-4'
 end

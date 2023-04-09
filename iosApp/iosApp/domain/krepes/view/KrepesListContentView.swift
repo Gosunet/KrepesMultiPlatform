@@ -12,9 +12,8 @@ struct KrepesListContentView: View {
             List(krepesViewModel.crepes, id: \.name) { crepe in
                 CrepeView(crepe: crepe)
             }
-            .onAppear {
-                self.krepesViewModel.startObservingCrepesUpdates(city:city!)
-            }
+        }.task {
+            await self.krepesViewModel.startObservingCrepesUpdates(city:city!)
         }
     }
 }

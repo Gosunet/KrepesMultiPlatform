@@ -1,5 +1,6 @@
 import Foundation
 import shared
+import KMPNativeCoroutinesAsync
 
 class KrepesViewModel: ObservableObject {
     @Published var crepes = [Crepe]()
@@ -10,7 +11,7 @@ class KrepesViewModel: ObservableObject {
         self.repository = repository
     }
 
-    func startObservingCrepesUpdates(city:City) {
+    func startObservingCrepesUpdates(city:City) async {
         repository.getCrepes(city: city) { (crepes: [Crepe]?, error) in
             self.crepes = crepes!;
         }

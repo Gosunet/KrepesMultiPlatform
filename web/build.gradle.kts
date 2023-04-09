@@ -25,20 +25,14 @@ dependencies {
 
 
 kotlin {
-    kotlin {
-        js {
-            browser {
-                commonWebpackConfig {
-                    cssSupport.enabled = true
-                }
-            }
-            binaries.executable()
-        }
+    js(IR) {
+        browser()
+        binaries.executable()
     }
 }
-repositories {
-    mavenCentral()
-    maven("https://dl.bintray.com/kotlin/kotlin-eap")
-    maven("https://maven.pkg.jetbrains.space/kotlin/p/kotlin/kotlin-js-wrappers")
-    maven("https://kotlin.bintray.com/kotlin-js-wrappers/")
+
+afterEvaluate {
+    rootProject.extensions.configure<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension> {
+        versions.webpackCli.version = "4.10.0"
+    }
 }
